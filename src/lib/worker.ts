@@ -22,4 +22,18 @@ export const createWorker = async () => {
         console.error('mediasoup worker died exiting in 2 second ...[pid:&id]',worker.pid);
         setTimeout(() => process.exit(1), 2000);
     });
-}
+
+    const mediaCodecs = config.mediasoup.router.mediaCodes;
+    const mediasoupRouter = await worker.createRouter({ mediaCodecs });
+    return mediasoupRouter;
+}   
+
+
+//about worker 
+//A Worker is a separate process responsible for handling media at a low level using C++ bindings. 
+// Think of it as a dedicated CPU unit that manages actual audio/video packets.
+
+// Use:
+// Manages performance (you can create multiple workers to use multiple CPU cores).
+
+// All media traffic (RTP, DTLS, ICE, etc.) goes through this.
