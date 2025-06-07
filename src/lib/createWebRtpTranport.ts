@@ -37,4 +37,8 @@ export const createWebRtpTranport = async (mediasoupRouter:Router)=>{
     }
 }
 
+//  function (createWebRtpTranport ) Its creates a WebRTC transport on the Mediasoup router (mediasoupRouter).
+// Returns:
+// transport: a WebRtcTransport object created by Mediasoup.
+// params: an object with the required transport info (ICE, DTLS, etc.) needed by the client.
 
